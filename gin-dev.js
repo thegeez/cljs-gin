@@ -1,0 +1,10 @@
+goog.addDependency("../cljs/core.js", ['cljs.core'], ['goog.string', 'goog.array', 'goog.object', 'goog.string.StringBuffer']);
+goog.addDependency("../clojure/browser/event.js", ['clojure.browser.event'], ['cljs.core', 'goog.events.EventType', 'goog.events.EventTarget', 'goog.events']);
+goog.addDependency("../clojure/browser/net.js", ['clojure.browser.net'], ['goog.net.xpc.CrossPageChannel', 'clojure.browser.event', 'goog.net.xpc.CfgFields', 'cljs.core', 'goog.net.EventType', 'goog.json', 'goog.net.XhrIo']);
+goog.addDependency("../clojure/browser/repl.js", ['clojure.browser.repl'], ['clojure.browser.event', 'clojure.browser.net', 'cljs.core']);
+goog.addDependency("../clojure/string.js", ['clojure.string'], ['cljs.core', 'goog.string', 'goog.string.StringBuffer']);
+goog.addDependency("../gin/dom-helpers.js", ['gin.dom_helpers'], ['goog.dom.classes', 'goog.Timer', 'cljs.core', 'goog.fx', 'goog.fx.dom', 'goog.dom', 'clojure.string', 'goog.style', 'goog.dom.forms']);
+goog.addDependency("../gin/game.js", ['gin.game'], ['cljs.core']);
+goog.addDependency("../gin/localgame.js", ['gin.localgame'], ['cljs.core', 'gin.game']);
+goog.addDependency("../gin/core.js", ['gin.core'], ['cljs.core', 'goog.net.Jsonp', 'goog.net.ImageLoader', 'gin.dom_helpers', 'clojure.browser.repl', 'gin.localgame', 'goog.events', 'goog.fx.Dragger']);
+goog.addDependency("../gin/gametest.js", ['gin.gametest'], ['cljs.core', 'gin.game']);

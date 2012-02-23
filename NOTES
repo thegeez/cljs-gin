@@ -1,0 +1,38 @@
+# run clojurescript/script/repl
+(use 'cljs.closure)
+
+(def root "/home/mfex/Programming/cljs-gin")
+(def opts {:output-to (str root "/gin-dev.js") :output-dir (str root "/out")})
+(def advanced-opts (merge opts {:output-to (str root "/gin.js")
+                                :optimizations :advanced}))
+
+(defn b [] (build (str root "/src") opts))
+
+(defn ba [] (build (str root "/src") advanced-opts))
+
+# start browserrepl:
+(do
+(require '[cljs.repl :as repl])
+(require '[cljs.repl.browser :as browser])  ;; require the browser implementation of IJavaScriptEnv
+(def env (browser/repl-env)) ;; create a new environment
+(repl/repl env)
+)
+# or
+M-x enable-browser-repl
+C-c C-z
+
+#cljsc-watch
+./cljs-watch /home/mfex/Programming/cljs-gin/src '{:optimizations :simple :pretty-print true :output-dir "/home/mfex/Programming/cljs-gin/out"}'
+
+#docs
+http://docs.racket-lang.org/games/ginrummy.html
+
+# s3
+~/Programming/aws/aws put "x-amz-acl: public-read" "x-amz-storage-class: REDUCED_REDUNDANCY" thegeez-gin index.html
+~/Programming/aws/aws put "x-amz-acl: public-read" "x-amz-storage-class: REDUCED_REDUNDANCY" thegeez-gin index-dev.html
+~/Programming/aws/aws put "x-amz-acl: public-read" "x-amz-storage-class: REDUCED_REDUNDANCY" thegeez-gin gin.js
+~/Programming/aws/aws put "x-amz-acl: public-read" "x-amz-storage-class: REDUCED_REDUNDANCY" thegeez-gin gin-dev.js
+find css -type f -name '*' | xargs -l1 ~/Programming/aws/aws put "x-amz-acl: public-read" "x-amz-storage-class: REDUCED_REDUNDANCY" thegeez-gin
+find images -type f -name '*' | xargs -l1 ~/Programming/aws/aws put "x-amz-acl: public-read" "x-amz-storage-class: REDUCED_REDUNDANCY" thegeez-gin
+find out -type f -name '*' | xargs -l1 ~/Programming/aws/aws put "x-amz-acl: public-read" "x-amz-storage-class: REDUCED_REDUNDANCY" thegeez-gin
+

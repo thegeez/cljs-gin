@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>GIN-DEV</title>
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/default.css" media="screen" />
+  </head>
+  <body>
+    <div id="container">
+      <div id="table">
+        <div id="their_region" class="region their_region">
+        </div>
+        <div class="pile_row">
+          <div id="deck" class="deck">
+          </div>
+          <div id="discard_pile" class="discard_pile">
+          </div>
+        </div>
+        
+        <div id="our_region" class="region our_region">
+        </div>
+      </div>
+      <div id="msg" class="msg"></div>
+    </div>
+    <script type="text/javascript" src="out/goog/base.js"></script>
+    <script type="text/javascript" src="gin-dev.js"></script>
+    <script>
+      goog.require('gin.core');
+      goog.require('gin.gametest');
+    </script>
+    <script>
+      gin.core.start_app();
+      gin.core.watch_table();
+      gin.core.connect();      
+    </script>
+  </body>
+</html>
